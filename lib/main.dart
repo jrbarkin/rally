@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'services/gemini.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+// DotEnv dotenv = DotEnv() is automatically called during import.
+// If you want to load multiple dotenv files or name your dotenv object differently, you can do the following and import the singleton into the relavant files:
+// DotEnv another_dotenv = DotEnv()
+
+
+
+Future main() async {
+  // To load the .env file contents into dotenv.
+  // NOTE: fileName defaults to .env and can be omitted in this case.
+  // Ensure that the filename corresponds to the path in step 1 and 2.
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
+
 }
 
 class MyApp extends StatelessWidget {
@@ -50,6 +63,7 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
@@ -76,6 +90,10 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    print('Hello, world!');
+    get_query();
+
+
     return Scaffold(
       appBar: AppBar(
         // TRY THIS: Try changing the color here to a specific color (to

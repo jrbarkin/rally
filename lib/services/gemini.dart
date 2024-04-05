@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:google_generative_ai/google_generative_ai.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() async {
+void get_query() async {
   // Access your API key as an environment variable (see "Set up your API key" above)
-  final apiKey = Platform.environment['API_KEY'];
+  final apiKey = dotenv.env['API_KEY'];
+  print(apiKey);
   if (apiKey == null) {
     print('No \$API_KEY environment variable');
     exit(1);
