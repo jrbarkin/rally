@@ -7,6 +7,8 @@ import 'dart:convert';
 class GeminiResult {
   final String name;
   final String address;
+  double? lat; // Nullable and non-final latitude
+  double? lng; // Nullable and non-final longitude
 
   GeminiResult(this.name, this.address);
 
